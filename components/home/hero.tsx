@@ -43,7 +43,7 @@ export default function Hero() {
       <Container className="relative grid items-center gap-14 py-16 md:py-20 lg:min-h-[700px] lg:grid-cols-[1fr_1.08fr] lg:gap-16 lg:py-24">
         {/* Content */}
         <div className="relative z-10 max-w-2xl">
-          <span className="inline-flex rounded-full border border-[#C9A227]/30 bg-[#C9A227]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#A98212] sm:px-5 sm:text-xs">
+          <span className="inline-flex rounded-full border border-[#C9A227]/30 bg-[#C9A227]/10 px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#7A5C00] sm:px-5 sm:text-xs">
             {company.tagline}
           </span>
 

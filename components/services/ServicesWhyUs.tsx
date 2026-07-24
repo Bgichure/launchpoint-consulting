@@ -57,7 +57,7 @@ export default function ServicesWhyUs() {
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-10 bg-[#C9A227]" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
               Why LaunchPoint
             </span>
 
@@ -71,7 +71,7 @@ export default function ServicesWhyUs() {
           </h2>
 
           <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-            We don't simply create reports—we help transform ideas into
+            We don&apos;t simply create reports—we help transform ideas into
             professional, investment-ready business opportunities.
           </p>
         </div>

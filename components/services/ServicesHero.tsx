@@ -33,7 +33,7 @@ export default function ServicesHero() {
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-10 bg-[#C9A227]" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
               Our Services
             </span>
 
@@ -59,7 +59,7 @@ export default function ServicesHero() {
                   key={item.title}
                   className="flex items-center justify-center gap-3 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm"
                 >
-                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#C9A227]/10 text-[#A98212]">
+                  <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#C9A227]/10 text-[#7A5C00]">
                     <Icon size={19} />
                   </span>
 
@@ -82,7 +82,7 @@ export default function ServicesHero() {
 
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-[#0F172A] transition-all duration-300 hover:border-[#C9A227] hover:text-[#A98212]"
+              className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-[#0F172A] transition-all duration-300 hover:border-[#C9A227] hover:text-[#7A5C00]"
             >
               Discuss Your Project
             </Link>

@@ -54,7 +54,7 @@ export default function AboutApproach() {
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-10 bg-[#C9A227]" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
               Our Approach
             </span>
 
@@ -86,7 +86,7 @@ export default function AboutApproach() {
 
                 <div>
                   <div className="flex flex-wrap items-center gap-3">
-                    <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[#A98212]">
+                    <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[#7A5C00]">
                       Step {number}
                     </span>
 

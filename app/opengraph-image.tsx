@@ -56,7 +56,6 @@ export default function OpenGraphImage() {
         <div
           style={{
             position: "relative",
-            zIndex: 2,
             display: "flex",
             flexDirection: "column",
             justifyContent: "space-between",
@@ -143,15 +142,21 @@ export default function OpenGraphImage() {
 
             <div
               style={{
+                display: "flex",
+                flexWrap: "wrap",
                 fontSize: 66,
                 lineHeight: 1.05,
                 fontWeight: 800,
                 letterSpacing: "-0.045em",
               }}
             >
-              Turn Ambitious Ideas Into
-              <span style={{ color: "#D8B942" }}>
-                {" "}
+              <span>Turn Ambitious Ideas Into&nbsp;</span>
+
+              <span
+                style={{
+                  color: "#D8B942",
+                }}
+              >
                 Clear Business Opportunities.
               </span>
             </div>

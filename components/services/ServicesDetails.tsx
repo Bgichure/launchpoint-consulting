@@ -125,7 +125,7 @@ export default function ServicesDetails() {
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-10 bg-[#C9A227]" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
               Service Details
             </span>
 
@@ -165,7 +165,7 @@ export default function ServicesDetails() {
                         <Icon size={24} />
                       </span>
 
-                      <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[#A98212]">
+                      <span className="text-sm font-semibold uppercase tracking-[0.22em] text-[#7A5C00]">
                         Service {service.number}
                       </span>
                     </div>
@@ -192,7 +192,7 @@ export default function ServicesDetails() {
 
                   {/* Included items */}
                   <div className="border-t border-slate-200 bg-white p-7 sm:p-9 lg:border-l lg:border-t-0 lg:p-12">
-                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#A98212]">
+                    <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#7A5C00]">
                       What&apos;s Included
                     </p>
 

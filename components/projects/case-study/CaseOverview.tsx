@@ -14,7 +14,7 @@ export default function CaseOverview({
         <div className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:items-start">
           {/* Left */}
           <div>
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#A98212]">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#7A5C00]">
               Project Overview
             </p>
 

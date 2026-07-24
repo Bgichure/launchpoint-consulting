@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import { CheckCircle2, Clock3 } from "lucide-react";
 
 import Container from "@/components/ui/Container";
@@ -15,14 +15,15 @@ export default function Process() {
     process.length > 1 ? (activeStep / (process.length - 1)) * 100 : 0;
 
   return (
-    <section id="process" className="bg-white py-20 md:py-24 lg:py-28">
+    <LazyMotion features={domAnimation}>
+      <section id="process" className="bg-white py-20 md:py-24 lg:py-28">
       <Container>
         {/* Heading */}
         <div className="mx-auto mb-16 max-w-3xl text-center md:mb-20">
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-10 bg-[#C9A227]" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
               Our Process
             </span>
 
@@ -43,7 +44,7 @@ export default function Process() {
         <div className="relative mb-14 md:mb-16">
           <div className="absolute left-[10%] right-[10%] top-10 hidden h-px bg-slate-200 lg:block" />
 
-          <motion.div
+          <m.div
             className="absolute left-[10%] top-10 hidden h-px bg-[#C9A227] lg:block"
             animate={{
               width: `calc(${progress * 0.8}%)`,
@@ -72,7 +73,7 @@ export default function Process() {
                       : "border-slate-200 bg-white hover:border-[#C9A227]/30"
                   }`}
                 >
-                  <motion.div
+                  <m.div
                     whileHover={{ scale: 1.05 }}
                     animate={{
                       backgroundColor:
@@ -83,10 +84,10 @@ export default function Process() {
                     className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full shadow-[0_14px_30px_rgba(15,23,42,0.14)] sm:h-20 sm:w-20"
                   >
                     <Icon size={28} className="text-white" />
-                  </motion.div>
+                  </m.div>
 
                   <div>
-                    <span className="text-xs font-semibold tracking-[0.2em] text-[#A98212] sm:mt-5 sm:block">
+                    <span className="text-xs font-semibold tracking-[0.2em] text-[#7A5C00] sm:mt-5 sm:block">
                       STEP {item.number}
                     </span>
 
@@ -108,7 +109,7 @@ export default function Process() {
 
         {/* Animated detail card */}
         <AnimatePresence mode="wait">
-          <motion.article
+          <m.article
             key={step.number}
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
@@ -119,7 +120,7 @@ export default function Process() {
             <div className="grid lg:grid-cols-[1fr_0.95fr]">
               {/* Summary */}
               <div className="p-7 sm:p-9 lg:p-12">
-                <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
+                <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
                   Step {step.number}
                 </span>
 
@@ -132,7 +133,7 @@ export default function Process() {
                 </p>
 
                 <div className="mt-8 inline-flex items-center gap-4 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#C9A227]/10 text-[#A98212]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#C9A227]/10 text-[#7A5C00]">
                     <Clock3 size={21} />
                   </div>
 
@@ -173,9 +174,10 @@ export default function Process() {
                 </div>
               </div>
             </div>
-          </motion.article>
+          </m.article>
         </AnimatePresence>
       </Container>
     </section>
+    </LazyMotion>
   );
 }

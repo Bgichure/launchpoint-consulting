@@ -48,7 +48,7 @@ export default function ContactProcess() {
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-10 bg-[#C9A227]" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
               What Happens Next
             </span>
 
@@ -81,7 +81,7 @@ export default function ContactProcess() {
                   <Icon size={24} />
                 </div>
 
-                <span className="mt-7 block text-xs font-semibold uppercase tracking-[0.22em] text-[#A98212]">
+                <span className="mt-7 block text-xs font-semibold uppercase tracking-[0.22em] text-[#7A5C00]">
                   Step {step.number}
                 </span>
 

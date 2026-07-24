@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -54,30 +54,32 @@ export default function CaseGallery({
   const hasDocuments =
     project.documents && project.documents.length > 0;
 
-  const closeLightbox = () => {
+  const closeLightbox = useCallback(() => {
     setSelectedImage(null);
-  };
+  }, []);
 
-  const showPreviousImage = () => {
-    if (selectedImage === null || project.gallery.length === 0) {
-      return;
-    }
+  const showPreviousImage = useCallback(() => {
+    setSelectedImage((currentImage) => {
+      if (currentImage === null || project.gallery.length === 0) {
+        return currentImage;
+      }
 
-    setSelectedImage(
-      (selectedImage - 1 + project.gallery.length) %
+      return (
+        (currentImage - 1 + project.gallery.length) %
         project.gallery.length
-    );
-  };
+      );
+    });
+  }, [project.gallery.length]);
 
-  const showNextImage = () => {
-    if (selectedImage === null || project.gallery.length === 0) {
-      return;
-    }
+  const showNextImage = useCallback(() => {
+    setSelectedImage((currentImage) => {
+      if (currentImage === null || project.gallery.length === 0) {
+        return currentImage;
+      }
 
-    setSelectedImage(
-      (selectedImage + 1) % project.gallery.length
-    );
-  };
+      return (currentImage + 1) % project.gallery.length;
+    });
+  }, [project.gallery.length]);
 
   useEffect(() => {
     if (selectedImage === null) {
@@ -107,7 +109,12 @@ export default function CaseGallery({
       document.body.style.overflow = originalOverflow;
       window.removeEventListener("keydown", handleKeyDown);
     };
-  }, [selectedImage]);
+  }, [
+    selectedImage,
+    closeLightbox,
+    showPreviousImage,
+    showNextImage,
+  ]);
 
   if (!hasGallery && !hasDocuments) {
     return null;
@@ -123,7 +130,7 @@ export default function CaseGallery({
       <section className="bg-white py-16 md:py-20">
         <Container>
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#A98212]">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#7A5C00]">
               Project Assets
             </p>
 
@@ -142,7 +149,7 @@ export default function CaseGallery({
               <div className="mt-12">
                 <div className="grid gap-4 md:grid-cols-[1fr_0.8fr] md:items-end">
                   <div>
-                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#A98212]">
+                    <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#7A5C00]">
                       Project Preview
                     </p>
 
@@ -210,7 +217,7 @@ export default function CaseGallery({
                 }
               >
                 <div>
-                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#A98212]">
+                  <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#7A5C00]">
                     Project Documents
                   </p>
 
@@ -241,7 +248,7 @@ export default function CaseGallery({
                           <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#C9A227]/10">
                             <DocumentIcon
                               size={23}
-                              className="text-[#A98212]"
+                              className="text-[#7A5C00]"
                             />
                           </div>
 
@@ -251,7 +258,7 @@ export default function CaseGallery({
                                 {document.title}
                               </h4>
 
-                              <span className="rounded-full border border-[#C9A227]/25 bg-[#C9A227]/10 px-2.5 py-1 text-[11px] font-bold tracking-wide text-[#A98212]">
+                              <span className="rounded-full border border-[#C9A227]/25 bg-[#C9A227]/10 px-2.5 py-1 text-[11px] font-bold tracking-wide text-[#7A5C00]">
                                 {document.type}
                               </span>
                             </div>

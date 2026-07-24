@@ -18,11 +18,11 @@ export default function CaseSolution({
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#C9A227]/10">
               <Lightbulb
                 size={24}
-                className="text-[#A98212]"
+                className="text-[#7A5C00]"
               />
             </div>
 
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#A98212]">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#7A5C00]">
               The Solution
             </p>
 
@@ -47,7 +47,7 @@ export default function CaseSolution({
                     <CheckCircle2
                       size={16}
                       strokeWidth={2.5}
-                      className="text-[#A98212]"
+                      className="text-[#7A5C00]"
                     />
                   </div>
 

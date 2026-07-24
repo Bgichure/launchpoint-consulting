@@ -1,49 +1,91 @@
 "use client";
 
+import { FormEvent, useState } from "react";
 import { useSearchParams } from "next/navigation";
 
 import Container from "@/components/ui/Container";
-
-const serviceOptions = [
-  "Business Plan",
-  "Pitch Deck",
-  "Financial Model",
-  "Market Research",
-  "Grant & Loan Plan",
-  "Presentation Design",
-  "Multiple Services",
-];
-
-const budgetOptions = [
-  "Under ksh 1,000",
-  "ksh 1000 – ksh 3,000",
-  "ksh 3,000 – ksh 5,000",
-  "ksh 5,000+",
-  "Let's Discuss",
-];
-
-const timelineOptions = [
-  "As soon as possible",
-  "Within 1 weeks",
-  "Within 2 weeks",
-  "Within 1 month",
-  "Flexible",
-];
+import {
+  budgetOptions,
+  serviceOptions,
+  timelineOptions,
+} from "@/lib/contact/schema";
 
 const fieldClassName =
   "w-full rounded-xl border border-slate-300 bg-white px-4 py-3.5 text-sm text-[#0F172A] shadow-sm outline-none transition-all duration-300 placeholder:text-slate-400 hover:border-slate-400 focus:border-[#C9A227] focus:ring-4 focus:ring-[#C9A227]/10 disabled:cursor-not-allowed disabled:bg-slate-100";
 
-const labelClassName =
-  "mb-2 block text-sm font-semibold text-slate-700";
+const labelClassName = "mb-2 block text-sm font-semibold text-slate-700";
+
+type SubmissionState =
+  | { type: "idle"; message: "" }
+  | { type: "success" | "error"; message: string };
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
   const serviceFromUrl = searchParams.get("service");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submission, setSubmission] = useState<SubmissionState>({
+    type: "idle",
+    message: "",
+  });
 
   const selectedService =
-    serviceFromUrl && serviceOptions.includes(serviceFromUrl)
+    serviceFromUrl &&
+    serviceOptions.includes(serviceFromUrl as (typeof serviceOptions)[number])
       ? serviceFromUrl
       : "Business Plan";
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setSubmission({ type: "idle", message: "" });
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    const payload = {
+      fullName: String(formData.get("fullName") ?? ""),
+      email: String(formData.get("email") ?? ""),
+      company: String(formData.get("company") ?? ""),
+      phone: String(formData.get("phone") ?? ""),
+      service: String(formData.get("service") ?? ""),
+      timeline: String(formData.get("timeline") ?? ""),
+      budget: String(formData.get("budget") ?? ""),
+      message: String(formData.get("message") ?? ""),
+      website: String(formData.get("website") ?? ""),
+      turnstileToken: "",
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+
+      const result = (await response.json()) as { message?: string };
+
+      if (!response.ok) {
+        throw new Error(result.message || "Unable to send your inquiry.");
+      }
+
+      setSubmission({
+        type: "success",
+        message:
+          result.message || "Thank you. Your inquiry has been sent successfully.",
+      });
+      form.reset();
+    } catch (error) {
+      setSubmission({
+        type: "error",
+        message:
+          error instanceof Error
+            ? error.message
+            : "Something went wrong. Please try again.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
 
   return (
     <section
@@ -73,7 +115,18 @@ export default function ContactForm() {
             </p>
           </div>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit} noValidate={false}>
+            <div className="absolute left-[-10000px] top-auto h-px w-px overflow-hidden" aria-hidden="true">
+              <label htmlFor="website">Website</label>
+              <input
+                id="website"
+                name="website"
+                type="text"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+
             <div className="grid gap-6 md:grid-cols-2">
               <div>
                 <label htmlFor="full-name" className={labelClassName}>
@@ -86,7 +139,10 @@ export default function ContactForm() {
                   type="text"
                   placeholder="John Smith"
                   autoComplete="name"
+                  minLength={2}
+                  maxLength={100}
                   required
+                  disabled={isSubmitting}
                   className={fieldClassName}
                 />
               </div>
@@ -102,7 +158,9 @@ export default function ContactForm() {
                   type="email"
                   placeholder="john@email.com"
                   autoComplete="email"
+                  maxLength={254}
                   required
+                  disabled={isSubmitting}
                   className={fieldClassName}
                 />
               </div>
@@ -120,6 +178,8 @@ export default function ContactForm() {
                   type="text"
                   placeholder="Your company name"
                   autoComplete="organization"
+                  maxLength={120}
+                  disabled={isSubmitting}
                   className={fieldClassName}
                 />
               </div>
@@ -136,6 +196,8 @@ export default function ContactForm() {
                   type="tel"
                   placeholder="+254 700 000 000"
                   autoComplete="tel"
+                  maxLength={40}
+                  disabled={isSubmitting}
                   className={fieldClassName}
                 />
               </div>
@@ -152,6 +214,7 @@ export default function ContactForm() {
                   name="service"
                   defaultValue={selectedService}
                   required
+                  disabled={isSubmitting}
                   className={fieldClassName}
                 >
                   {serviceOptions.map((service) => (
@@ -172,6 +235,7 @@ export default function ContactForm() {
                   name="timeline"
                   defaultValue="Flexible"
                   required
+                  disabled={isSubmitting}
                   className={fieldClassName}
                 >
                   {timelineOptions.map((timeline) => (
@@ -193,6 +257,7 @@ export default function ContactForm() {
                 name="budget"
                 defaultValue="Let's Discuss"
                 required
+                disabled={isSubmitting}
                 className={fieldClassName}
               >
                 {budgetOptions.map((budget) => (
@@ -217,7 +282,10 @@ export default function ContactForm() {
                 id="message"
                 name="message"
                 rows={8}
+                minLength={20}
+                maxLength={5000}
                 required
+                disabled={isSubmitting}
                 placeholder="Tell us about your business, project goals, target audience, funding objectives, required deliverables and any existing materials."
                 className={`${fieldClassName} min-h-52 resize-y`}
               />
@@ -236,11 +304,26 @@ export default function ContactForm() {
               </p>
             </div>
 
+            {submission.type !== "idle" && (
+              <div
+                role={submission.type === "error" ? "alert" : "status"}
+                aria-live="polite"
+                className={`rounded-xl border px-5 py-4 text-sm font-medium ${
+                  submission.type === "success"
+                    ? "border-emerald-200 bg-emerald-50 text-emerald-800"
+                    : "border-red-200 bg-red-50 text-red-800"
+                }`}
+              >
+                {submission.message}
+              </div>
+            )}
+
             <button
               type="submit"
-              className="flex w-full items-center justify-center rounded-xl bg-[#0F172A] px-8 py-4 font-semibold text-white shadow-[0_12px_30px_rgba(15,23,42,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1E293B] hover:shadow-[0_16px_36px_rgba(15,23,42,0.22)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#C9A227]/30 active:translate-y-0"
+              disabled={isSubmitting}
+              className="flex w-full items-center justify-center rounded-xl bg-[#0F172A] px-8 py-4 font-semibold text-white shadow-[0_12px_30px_rgba(15,23,42,0.18)] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#1E293B] hover:shadow-[0_16px_36px_rgba(15,23,42,0.22)] focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-[#C9A227]/30 active:translate-y-0 disabled:cursor-not-allowed disabled:opacity-65 disabled:hover:translate-y-0"
             >
-              Schedule Free Consultation
+              {isSubmitting ? "Sending Inquiry..." : "Schedule Free Consultation"}
             </button>
 
             <div className="flex flex-col items-center justify-center gap-2 text-center text-sm text-slate-500 sm:flex-row sm:gap-3">

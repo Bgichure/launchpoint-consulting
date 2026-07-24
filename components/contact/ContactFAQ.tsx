@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import { Minus, Plus } from "lucide-react";
 
 import Container from "@/components/ui/Container";
@@ -33,14 +33,15 @@ export default function ContactFAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section className="bg-[#F8FAFC] py-20 md:py-24 lg:py-28">
+    <LazyMotion features={domAnimation}>
+      <section className="bg-[#F8FAFC] py-20 md:py-24 lg:py-28">
       <Container>
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-10 bg-[#C9A227]" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
               Contact Questions
             </span>
 
@@ -80,7 +81,7 @@ export default function ContactFAQ() {
                     {faq.question}
                   </h3>
 
-                  <motion.div
+                  <m.div
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ duration: 0.25 }}
                     className={`flex h-10 w-10 items-center justify-center rounded-full ${
@@ -90,12 +91,12 @@ export default function ContactFAQ() {
                     }`}
                   >
                     {isOpen ? <Minus size={18} /> : <Plus size={18} />}
-                  </motion.div>
+                  </m.div>
                 </button>
 
                 <AnimatePresence initial={false}>
                   {isOpen && (
-                    <motion.div
+                    <m.div
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
                       exit={{ height: 0, opacity: 0 }}
@@ -107,7 +108,7 @@ export default function ContactFAQ() {
                           {faq.answer}
                         </p>
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
               </article>
@@ -116,5 +117,6 @@ export default function ContactFAQ() {
         </div>
       </Container>
     </section>
+    </LazyMotion>
   );
 }

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, LazyMotion, domAnimation, m } from "framer-motion";
 import { ArrowRight, Minus, Plus } from "lucide-react";
 
 import Container from "@/components/ui/Container";
@@ -12,14 +12,15 @@ export default function FAQ() {
   const [open, setOpen] = useState<number | null>(0);
 
   return (
-    <section id="faq" className="bg-[#F8FAFC] py-20 md:py-24 lg:py-28">
+    <LazyMotion features={domAnimation}>
+      <section id="faq" className="bg-[#F8FAFC] py-20 md:py-24 lg:py-28">
       <Container>
         {/* Heading */}
         <div className="mx-auto mb-14 max-w-3xl text-center md:mb-16">
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-10 bg-[#C9A227]" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
               Frequently Asked Questions
             </span>
 
@@ -63,23 +64,23 @@ export default function FAQ() {
                       {faq.question}
                     </span>
 
-                    <motion.span
+                    <m.span
                       animate={{ rotate: isOpen ? 180 : 0 }}
                       transition={{ duration: 0.25 }}
                       className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors duration-300 ${
                         isOpen
                           ? "bg-[#C9A227] text-white"
-                          : "bg-slate-100 text-[#0F172A] group-hover:bg-[#C9A227]/10 group-hover:text-[#A98212]"
+                          : "bg-slate-100 text-[#0F172A] group-hover:bg-[#C9A227]/10 group-hover:text-[#7A5C00]"
                       }`}
                     >
                       {isOpen ? <Minus size={19} /> : <Plus size={19} />}
-                    </motion.span>
+                    </m.span>
                   </button>
                 </h3>
 
                 <AnimatePresence initial={false}>
                   {isOpen && (
-                    <motion.div
+                    <m.div
                       id={answerId}
                       initial={{ height: 0, opacity: 0 }}
                       animate={{ height: "auto", opacity: 1 }}
@@ -92,7 +93,7 @@ export default function FAQ() {
                           {faq.answer}
                         </p>
                       </div>
-                    </motion.div>
+                    </m.div>
                   )}
                 </AnimatePresence>
               </article>
@@ -123,5 +124,6 @@ export default function FAQ() {
         </div>
       </Container>
     </section>
+    </LazyMotion>
   );
 }

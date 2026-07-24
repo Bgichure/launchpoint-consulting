@@ -19,7 +19,7 @@ export default function AboutHero() {
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-10 bg-[#C9A227]" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
               About LaunchPoint
             </span>
 
@@ -59,7 +59,7 @@ export default function AboutHero() {
 
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-[#0F172A] transition-all duration-300 hover:border-[#C9A227] hover:text-[#A98212]"
+              className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-[#0F172A] transition-all duration-300 hover:border-[#C9A227] hover:text-[#7A5C00]"
             >
               Work With Us
             </Link>

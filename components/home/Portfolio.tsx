@@ -15,7 +15,7 @@ export default function Portfolio() {
       <Container>
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div className="max-w-3xl">
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#A98212]">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#7A5C00]">
               Selected Projects
             </p>
 
@@ -32,7 +32,7 @@ export default function Portfolio() {
 
           <Link
             href="/projects"
-            className="inline-flex items-center gap-2 font-semibold text-[#0F172A] transition-colors hover:text-[#A98212]"
+            className="inline-flex items-center gap-2 font-semibold text-[#0F172A] transition-colors hover:text-[#7A5C00]"
           >
             View All Projects
             <ArrowUpRight size={18} />
@@ -57,7 +57,7 @@ export default function Portfolio() {
                 </div>
 
                 <div className="p-7">
-                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#A98212]">
+                  <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#7A5C00]">
                     {project.service}
                   </p>
 

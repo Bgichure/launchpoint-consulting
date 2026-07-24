@@ -20,14 +20,14 @@ export default function ServicesCTA() {
             </span>
 
             <h2 className="mt-5 text-4xl font-bold leading-tight tracking-[-0.03em] sm:text-5xl lg:text-[56px]">
-              Let's Build Something
+              Let&apos;s Build Something
               <br />
               Extraordinary Together
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
-              Whether you're seeking investment, bank financing, grant funding
-              or simply a stronger business strategy, we're here to help.
+              Whether you&apos;re seeking investment, bank financing, grant funding
+              or simply a stronger business strategy, we&apos;re here to help.
             </p>
 
             <div className="mt-10 flex flex-col justify-center gap-4 sm:flex-row">

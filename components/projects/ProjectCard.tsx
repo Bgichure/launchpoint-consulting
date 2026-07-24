@@ -37,12 +37,12 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         </div>
 
         <div className="flex flex-1 flex-col p-7 sm:p-8">
-          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#A98212]">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#7A5C00]">
             {project.service}
           </p>
 
           <div className="mt-3 flex items-start justify-between gap-5">
-            <h2 className="text-2xl font-bold tracking-[-0.03em] text-[#0F172A] transition-colors duration-300 group-hover:text-[#A98212]">
+            <h2 className="text-2xl font-bold tracking-[-0.03em] text-[#0F172A] transition-colors duration-300 group-hover:text-[#7A5C00]">
               {project.title}
             </h2>
 

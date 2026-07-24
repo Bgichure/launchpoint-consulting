@@ -49,7 +49,7 @@ export default function ProjectsGrid() {
         <div className="mx-auto max-w-6xl">
           <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
-              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#A98212]">
+              <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#7A5C00]">
                 Selected Work
               </p>
 

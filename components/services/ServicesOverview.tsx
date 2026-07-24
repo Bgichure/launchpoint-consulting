@@ -68,7 +68,7 @@ export default function ServicesOverview() {
           <div className="flex items-center justify-center gap-4">
             <div className="h-px w-10 bg-[#C9A227]" />
 
-            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
               Service Overview
             </span>
 
@@ -103,7 +103,7 @@ export default function ServicesOverview() {
 
                   <ArrowDownRight
                     size={20}
-                    className="text-slate-400 transition-all duration-300 group-hover:translate-x-1 group-hover:translate-y-1 group-hover:text-[#A98212]"
+                    className="text-slate-400 transition-all duration-300 group-hover:translate-x-1 group-hover:translate-y-1 group-hover:text-[#7A5C00]"
                   />
                 </div>
 

@@ -13,7 +13,7 @@ export default function CaseDeliverables({
     <section className="bg-slate-50 py-16 md:py-20">
       <Container>
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#A98212]">
+          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#7A5C00]">
             Deliverables
           </p>
 
@@ -22,7 +22,7 @@ export default function CaseDeliverables({
           </h2>
 
           <p className="mt-5 text-lg leading-8 text-slate-600">
-            Every engagement is tailored to the client's goals. These are the
+            Every engagement is tailored to the client&apos;s goals. These are the
             primary deliverables completed as part of this project.
           </p>
         </div>
@@ -36,7 +36,7 @@ export default function CaseDeliverables({
               <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#C9A227]/10 transition-colors duration-300 group-hover:bg-[#C9A227]">
                 <CheckCircle2
                   size={20}
-                  className="text-[#A98212] transition-colors duration-300 group-hover:text-white"
+                  className="text-[#7A5C00] transition-colors duration-300 group-hover:text-white"
                 />
               </div>
 

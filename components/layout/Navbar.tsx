@@ -28,9 +28,9 @@ export default function Navbar() {
     };
   }, []);
 
-  useEffect(() => {
+  const closeMobileMenu = () => {
     setIsMenuOpen(false);
-  }, [pathname]);
+  };
 
   const isActiveLink = (href: string) => {
     if (href === "/") {
@@ -57,6 +57,7 @@ export default function Navbar() {
         <Link
           href="/"
           aria-label="LaunchPoint Consulting homepage"
+          onClick={closeMobileMenu}
           className="relative z-50 flex shrink-0 items-center transition-transform duration-300 hover:scale-[1.02]"
         >
           <Image
@@ -116,7 +117,9 @@ export default function Navbar() {
         {/* Mobile Menu Button */}
         <button
           type="button"
-          aria-label={isMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+          aria-label={
+            isMenuOpen ? "Close navigation menu" : "Open navigation menu"
+          }
           aria-expanded={isMenuOpen}
           aria-controls="mobile-navigation"
           onClick={() => setIsMenuOpen((current) => !current)}
@@ -146,6 +149,7 @@ export default function Navbar() {
               <Link
                 key={item.name}
                 href={item.href}
+                onClick={closeMobileMenu}
                 className={`flex items-center justify-between border-b border-slate-100 py-4 text-base font-medium transition-colors ${
                   isActive
                     ? "text-[#C9A227]"
@@ -163,6 +167,7 @@ export default function Navbar() {
 
           <Link
             href="/contact"
+            onClick={closeMobileMenu}
             className="mt-5 inline-flex items-center justify-center rounded-xl bg-[#C9A227] px-6 py-3.5 text-sm font-semibold text-[#0F172A] shadow-[0_10px_25px_rgba(201,162,39,0.25)] transition-all duration-300 hover:bg-[#D8B63F]"
           >
             Get Free Consultation

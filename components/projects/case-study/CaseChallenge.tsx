@@ -18,11 +18,11 @@ export default function CaseChallenge({
             <div className="inline-flex h-12 w-12 items-center justify-center rounded-2xl bg-[#C9A227]/10">
               <AlertTriangle
                 size={24}
-                className="text-[#A98212]"
+                className="text-[#7A5C00]"
               />
             </div>
 
-            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#A98212]">
+            <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[#7A5C00]">
               The Challenge
             </p>
 
@@ -47,7 +47,7 @@ export default function CaseChallenge({
                     <Check
                       size={15}
                       strokeWidth={2.5}
-                      className="text-[#A98212]"
+                      className="text-[#7A5C00]"
                     />
                   </div>
 
