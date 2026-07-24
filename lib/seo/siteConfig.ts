@@ -1,7 +1,11 @@
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
+  "http://localhost:3000";
+
 export const siteConfig = {
   name: "LaunchPoint Consulting",
   shortName: "LaunchPoint",
-  url: "https://launchpointconsulting.com",
+  url: siteUrl,
 
   description:
     "LaunchPoint Consulting helps entrepreneurs, startups, and growing businesses create investor-ready business plans, pitch decks, financial models, market research, and strategic presentations.",
