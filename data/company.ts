@@ -11,5 +11,5 @@ export const company = {
 
   trust: "Trusted by startups, entrepreneurs and growing businesses.",
 
-  email: "",
+  email: "hello@launchpointconsulting.com",
 };

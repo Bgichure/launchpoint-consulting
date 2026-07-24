@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Clock3 } from "lucide-react";
 
 import Container from "@/components/ui/Container";
 import { process } from "@/data/process";
@@ -11,176 +11,170 @@ export default function Process() {
   const [activeStep, setActiveStep] = useState(0);
 
   const step = process[activeStep];
+  const progress =
+    process.length > 1 ? (activeStep / (process.length - 1)) * 100 : 0;
 
   return (
-    <section id="process" className="bg-white py-32">
+    <section id="process" className="bg-white py-20 md:py-24 lg:py-28">
       <Container>
         {/* Heading */}
-
-        <div className="mx-auto mb-24 max-w-3xl text-center">
+        <div className="mx-auto mb-16 max-w-3xl text-center md:mb-20">
           <div className="flex items-center justify-center gap-4">
-            <div className="h-px w-12 bg-[#C9A227]" />
+            <div className="h-px w-10 bg-[#C9A227]" />
 
-            <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#C9A227]">
+            <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
               Our Process
             </span>
 
-            <div className="h-px w-12 bg-[#C9A227]" />
+            <div className="h-px w-10 bg-[#C9A227]" />
           </div>
 
-          <h2 className="mt-6 text-5xl font-bold text-[#0F172A] lg:text-6xl">
-            From Your Idea
-            <br />
-            To Investor Confidence
+          <h2 className="mt-6 text-4xl font-bold leading-tight tracking-[-0.03em] text-[#0F172A] sm:text-5xl lg:text-[56px]">
+            From Your Idea to Investor Confidence
           </h2>
 
-          <p className="mx-auto mt-8 max-w-xl text-lg leading-8 text-slate-600">
-            Click each stage to explore how we transform your vision into an
-            investor-ready business.
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
+            Explore each stage of our process and see how we turn your business
+            concept into a clear, credible and funding-ready opportunity.
           </p>
         </div>
 
-        {/* Timeline */}
-
-        <div className="relative mb-24">
-
-          {/* Background Line */}
-
-          <div className="absolute left-0 right-0 top-10 hidden h-[2px] bg-slate-200 lg:block" />
-
-          {/* Progress Line */}
+        {/* Process navigation */}
+        <div className="relative mb-14 md:mb-16">
+          <div className="absolute left-[10%] right-[10%] top-10 hidden h-px bg-slate-200 lg:block" />
 
           <motion.div
-            className="absolute left-0 top-10 hidden h-[2px] bg-[#C9A227] lg:block"
+            className="absolute left-[10%] top-10 hidden h-px bg-[#C9A227] lg:block"
             animate={{
-              width: `${(activeStep / (process.length - 1)) * 100}%`,
+              width: `calc(${progress * 0.8}%)`,
             }}
             transition={{
-              duration: 0.5,
+              duration: 0.45,
+              ease: "easeOut",
             }}
           />
 
-          <div className="grid gap-8 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4 lg:gap-6">
             {process.map((item, index) => {
               const Icon = item.icon;
-
-              const active = index <= activeStep;
+              const isSelected = index === activeStep;
+              const isCompleted = index < activeStep;
 
               return (
                 <button
                   key={item.number}
+                  type="button"
                   onClick={() => setActiveStep(index)}
-                  className="relative z-10 flex flex-col items-center text-center"
+                  aria-pressed={isSelected}
+                  className={`group relative z-10 flex items-center gap-4 rounded-2xl border p-4 text-left transition-all duration-300 sm:flex-col sm:text-center lg:border-transparent lg:bg-transparent lg:p-0 ${
+                    isSelected
+                      ? "border-[#C9A227]/50 bg-[#C9A227]/5"
+                      : "border-slate-200 bg-white hover:border-[#C9A227]/30"
+                  }`}
                 >
                   <motion.div
-                    whileHover={{
-                      scale: 1.08,
-                    }}
+                    whileHover={{ scale: 1.05 }}
                     animate={{
-                      backgroundColor: active ? "#C9A227" : "#0F172A",
+                      backgroundColor:
+                        isSelected || isCompleted ? "#C9A227" : "#0F172A",
+                      scale: isSelected ? 1.06 : 1,
                     }}
-                    transition={{
-                      duration: 0.3,
-                    }}
-                    className="flex h-20 w-20 items-center justify-center rounded-full shadow-xl"
+                    transition={{ duration: 0.3 }}
+                    className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full shadow-[0_14px_30px_rgba(15,23,42,0.14)] sm:h-20 sm:w-20"
                   >
-                    <Icon size={30} className="text-white" />
+                    <Icon size={28} className="text-white" />
                   </motion.div>
 
-                  <span className="mt-5 text-sm font-semibold tracking-[0.2em] text-[#C9A227]">
-                    {item.number}
-                  </span>
+                  <div>
+                    <span className="text-xs font-semibold tracking-[0.2em] text-[#A98212] sm:mt-5 sm:block">
+                      STEP {item.number}
+                    </span>
 
-                  <h3 className="mt-2 text-2xl font-bold text-[#0F172A]">
-                    {item.title}
-                  </h3>
+                    <h3
+                      className={`mt-1 text-lg font-bold transition-colors duration-300 sm:mt-2 sm:text-xl ${
+                        isSelected
+                          ? "text-[#0F172A]"
+                          : "text-slate-700 group-hover:text-[#0F172A]"
+                      }`}
+                    >
+                      {item.title}
+                    </h3>
+                  </div>
                 </button>
               );
             })}
           </div>
         </div>
 
-        {/* Animated Detail Card */}
-
+        {/* Animated detail card */}
         <AnimatePresence mode="wait">
-          <motion.div
+          <motion.article
             key={step.number}
-            initial={{
-              opacity: 0,
-              y: 30,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            exit={{
-              opacity: 0,
-              y: -20,
-            }}
-            transition={{
-              duration: 0.4,
-            }}
-            className="mx-auto max-w-5xl rounded-3xl border border-slate-200 bg-slate-50 p-12 shadow-xl"
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -16 }}
+            transition={{ duration: 0.35 }}
+            className="mx-auto max-w-5xl overflow-hidden rounded-3xl border border-slate-200/80 bg-[#F8FAFC] shadow-[0_28px_70px_rgba(15,23,42,0.09)]"
           >
-            <div className="grid gap-10 lg:grid-cols-2">
-
-              {/* Left */}
-
-              <div>
-
-                <span className="text-sm font-semibold uppercase tracking-[0.3em] text-[#C9A227]">
-                  STEP {step.number}
+            <div className="grid lg:grid-cols-[1fr_0.95fr]">
+              {/* Summary */}
+              <div className="p-7 sm:p-9 lg:p-12">
+                <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#A98212] sm:text-sm">
+                  Step {step.number}
                 </span>
 
-                <h3 className="mt-4 text-4xl font-bold text-[#0F172A]">
+                <h3 className="mt-4 text-3xl font-bold tracking-[-0.025em] text-[#0F172A] sm:text-4xl">
                   {step.title}
                 </h3>
 
-                <p className="mt-6 text-lg leading-8 text-slate-600">
+                <p className="mt-5 text-base leading-8 text-slate-600 sm:text-lg">
                   {step.description}
                 </p>
 
-                <div className="mt-10 rounded-2xl bg-white p-6 shadow-sm">
-                  <p className="text-sm uppercase tracking-widest text-slate-500">
-                    Estimated Time
-                  </p>
+                <div className="mt-8 inline-flex items-center gap-4 rounded-2xl border border-slate-200 bg-white px-5 py-4 shadow-sm">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#C9A227]/10 text-[#A98212]">
+                    <Clock3 size={21} />
+                  </div>
 
-                  <p className="mt-2 text-3xl font-bold text-[#0F172A]">
-                    {step.duration}
-                  </p>
+                  <div>
+                    <p className="text-xs font-semibold uppercase tracking-[0.18em] text-slate-500">
+                      Estimated time
+                    </p>
+
+                    <p className="mt-1 text-xl font-bold text-[#0F172A]">
+                      {step.duration}
+                    </p>
+                  </div>
                 </div>
-
               </div>
 
-              {/* Right */}
-
-              <div>
-
-                <h4 className="text-2xl font-bold text-[#0F172A]">
-                  You'll Receive
+              {/* Deliverables */}
+              <div className="border-t border-slate-200 bg-white p-7 sm:p-9 lg:border-l lg:border-t-0 lg:p-12">
+                <h4 className="text-2xl font-bold tracking-[-0.02em] text-[#0F172A]">
+                  What You’ll Receive
                 </h4>
 
-                <div className="mt-8 space-y-5">
+                <div className="mt-7 space-y-4">
                   {step.deliverables.map((item) => (
                     <div
                       key={item}
-                      className="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-sm"
+                      className="flex items-start gap-4 rounded-2xl border border-slate-200/80 bg-[#F8FAFC] p-4 transition-colors duration-300 hover:border-[#C9A227]/35"
                     >
-                      <CheckCircle2 className="text-[#C9A227]" />
+                      <CheckCircle2
+                        className="mt-0.5 shrink-0 text-[#B58E18]"
+                        size={21}
+                      />
 
-                      <span className="font-medium text-slate-700">
+                      <span className="font-medium leading-7 text-slate-700">
                         {item}
                       </span>
                     </div>
                   ))}
                 </div>
-
               </div>
-
             </div>
-          </motion.div>
+          </motion.article>
         </AnimatePresence>
-
       </Container>
     </section>
   );

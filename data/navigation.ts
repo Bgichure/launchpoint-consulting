@@ -5,18 +5,18 @@ export const navigation = [
   },
   {
     name: "Services",
-    href: "#services",
+    href: "/services",
   },
   {
-    name: "Portfolio",
-    href: "#portfolio",
+    name: "Projects",
+    href: "/projects",
   },
   {
     name: "About",
-    href: "#about",
+    href: "/about",
   },
   {
     name: "Contact",
-    href: "#contact",
+    href: "/contact",
   },
 ];
