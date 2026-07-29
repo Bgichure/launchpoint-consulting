@@ -30,13 +30,13 @@ export const metadata: Metadata = {
       "Browse selected consulting projects including business plans, investor presentations, market research, and financial models.",
     url: "/projects",
     type: "website",
-    siteName: "LaunchPoint Consulting",
+    siteName: "Ravinear",
     images: [
       {
         url: "/images/og/projects.jpg",
         width: 1200,
         height: 630,
-        alt: "LaunchPoint Consulting portfolio and case studies",
+        alt: "Ravinear portfolio and case studies",
       },
     ],
   },

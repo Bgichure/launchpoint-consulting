@@ -2,8 +2,8 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "LaunchPoint Consulting",
-    short_name: "LaunchPoint",
+    name: "Ravinear",
+    short_name: "Ravinear",
     description:
       "Business plans, investor pitch decks, financial models, market research and presentation design.",
 

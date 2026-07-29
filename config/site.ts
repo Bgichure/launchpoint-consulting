@@ -1,95 +1,31 @@
+import { company } from "@/data/company";
+
 export const siteConfig = {
-  // ==========================================
-  // Company Information
-  // ==========================================
-  name: "LaunchPoint Consulting",
+  name: company.name,
+  shortName: company.shortName,
+  organization: company.organization,
+  creator: company.creator,
+  founded: company.founded,
+  industry: company.industry,
+  language: company.language,
+  defaultLocale: company.language,
+  locale: company.locale,
+  country: company.country,
 
-  shortName: "LaunchPoint",
+  url: company.url,
+  email: company.email,
+  twitterHandle: company.social.twitterHandle,
 
-  organization: "LaunchPoint Consulting",
+  title: company.seo.title,
+  description: company.seoDescription,
+  keywords: company.seo.keywords,
 
-  creator: "LaunchPoint Consulting",
+  socialImage: company.assets.socialImage,
+  socialImageWidth: company.assets.socialImageWidth,
+  socialImageHeight: company.assets.socialImageHeight,
+  logo: company.assets.logo,
+  favicon: company.assets.favicon,
 
-  founded: "2026",
-
-  industry: "Business Consulting",
-
-  language: "en",
-
-  defaultLocale: "en",
-
-  locale: "en_US",
-
-  country: "Worldwide",
-
-  // ==========================================
-  // Domain
-  // ==========================================
-  url:
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    "https://launchpointconsulting.com",
-
-  // ==========================================
-  // Contact
-  // ==========================================
-  email: "hello@launchpointconsulting.com",
-
-  twitterHandle: "",
-
-  // ==========================================
-  // SEO
-  // ==========================================
-  title: "Business Plans, Pitch Decks & Strategic Consulting",
-
-  description:
-    "LaunchPoint Consulting creates investor-ready business plans, pitch decks, financial models, market research, and strategic consulting solutions that help entrepreneurs secure funding and grow with confidence.",
-
-  keywords: [
-    "business plan",
-    "business plan writer",
-    "business plan consultant",
-    "business consultant",
-    "business planning services",
-    "startup business plan",
-    "investor pitch deck",
-    "investor presentation",
-    "pitch deck",
-    "financial model",
-    "financial projections",
-    "market research",
-    "feasibility study",
-    "grant writing",
-    "grant proposal",
-    "loan business plan",
-    "loan proposal",
-    "bank-ready business plan",
-    "business proposal",
-    "startup consulting",
-    "business strategy",
-    "business growth strategy",
-    "fundraising",
-    "presentation design",
-    "strategic consulting",
-    "LaunchPoint Consulting",
-  ],
-
-  // ==========================================
-  // Social Sharing
-  // ==========================================
-  socialImage: "/images/og/opengraph-image.png",
-
-  socialImageWidth: 1200,
-
-  socialImageHeight: 630,
-
-  logo: "/logos/logo.webp",
-
-  favicon: "/favicon.ico",
-
-  // ==========================================
-  // Theme
-  // ==========================================
-  themeColor: "#0F172A",
-
-  accentColor: "#C9A227",
+  themeColor: company.theme.primary,
+  accentColor: company.theme.accent,
 } as const;

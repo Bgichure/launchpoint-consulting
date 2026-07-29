@@ -47,7 +47,7 @@ export default function AboutStory() {
             </h2>
 
             <p className="mt-6 text-lg leading-8 text-slate-600">
-              LaunchPoint Consulting was founded on a simple belief:
+              Ravinear was founded on a simple belief:
               entrepreneurs deserve more than beautifully designed documents.
               They deserve strategies that inspire confidence, communicate
               value, and support real business decisions.

@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
 
 import Container from "@/components/ui/Container";
+import { company } from "@/data/company";
 
 export default function ContactCTA() {
   return (
@@ -37,7 +38,7 @@ export default function ContactCTA() {
               </Link>
 
               <a
-                href="mailto:hello@launchpointconsulting.com"
+                href={`mailto:${company.email}`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-[#C9A227]/60 hover:bg-white/10 hover:text-[#C9A227]"
               >
                 <Mail size={17} />

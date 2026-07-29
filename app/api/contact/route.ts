@@ -76,7 +76,7 @@ function buildEmailHtml(data: ContactPayload) {
 
   return `
     <div style="font-family:Arial,sans-serif;max-width:680px;margin:0 auto;color:#0f172a">
-      <h1 style="font-size:24px;margin-bottom:8px">New LaunchPoint consultation inquiry</h1>
+      <h1 style="font-size:24px;margin-bottom:8px">New Ravinear consultation inquiry</h1>
       <p style="color:#475569;margin-top:0">A new inquiry was submitted through the website.</p>
       <table style="width:100%;border-collapse:collapse;margin:24px 0">
         ${rows

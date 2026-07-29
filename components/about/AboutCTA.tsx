@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight, Mail } from "lucide-react";
 
 import Container from "@/components/ui/Container";
+import { company } from "@/data/company";
 
 export default function AboutCTA() {
   return (
@@ -23,7 +24,7 @@ export default function AboutCTA() {
             </div>
 
             <h2 className="mt-6 text-4xl font-bold leading-tight tracking-[-0.04em] text-white sm:text-5xl lg:text-[56px]">
-              Ready to Give Your Business a Stronger LaunchPoint?
+              Ready to Build a Stronger Business?
             </h2>
 
             <p className="mx-auto mt-6 max-w-2xl text-base leading-8 text-slate-300 sm:text-lg">
@@ -44,7 +45,7 @@ export default function AboutCTA() {
               </Link>
 
               <a
-                href="mailto:hello@launchpointconsulting.com"
+                href={`mailto:${company.email}`}
                 className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-6 py-3.5 text-sm font-semibold text-white transition-all duration-300 hover:border-white/40 hover:bg-white/10"
               >
                 <Mail size={17} />

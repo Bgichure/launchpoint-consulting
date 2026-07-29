@@ -58,7 +58,7 @@ export default function ServicesWhyUs() {
             <div className="h-px w-10 bg-[#C9A227]" />
 
             <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
-              Why LaunchPoint
+              Why Ravinear
             </span>
 
             <div className="h-px w-10 bg-[#C9A227]" />
@@ -119,14 +119,14 @@ export default function ServicesWhyUs() {
           </div>
 
           <div>
-            <p className="text-5xl font-bold text-[#C9A227]">98%</p>
+            <p className="text-5xl font-bold text-[#C9A227]">95%</p>
             <p className="mt-3 uppercase tracking-[0.18em] text-slate-300">
               Satisfaction
             </p>
           </div>
 
           <div>
-            <p className="text-5xl font-bold text-[#C9A227]">$150M+</p>
+            <p className="text-5xl font-bold text-[#C9A227]">$20M+</p>
             <p className="mt-3 uppercase tracking-[0.18em] text-slate-300">
               Funding Supported
             </p>

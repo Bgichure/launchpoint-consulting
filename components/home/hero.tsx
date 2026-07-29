@@ -52,7 +52,7 @@ export default function Hero() {
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-8 text-slate-600 sm:text-lg sm:leading-9">
-            LaunchPoint Consulting helps entrepreneurs, startups and growing
+            Ravinear helps entrepreneurs, startups and growing
             businesses transform ideas into investment-ready ventures through
             professional business plans, pitch decks, financial projections and
             market research.

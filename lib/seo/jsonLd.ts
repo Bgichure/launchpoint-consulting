@@ -69,7 +69,7 @@ export function getHomeJsonLd() {
         "@type": "WebPage",
         "@id": `${siteConfig.url}/#webpage`,
         url: siteConfig.url,
-        name: "LaunchPoint Consulting",
+        name: "Ravinear",
         description: siteConfig.description,
         isPartOf: {
           "@id": websiteId,
@@ -111,9 +111,9 @@ export function getProjectsJsonLd() {
     "@type": "CollectionPage",
     "@id": `${absoluteUrl("/projects")}#webpage`,
     url: absoluteUrl("/projects"),
-    name: "LaunchPoint Consulting Projects",
+    name: "Ravinear Projects",
     description:
-      "A portfolio of business plans, investor pitch decks, financial models, market research, and strategic consulting projects completed by LaunchPoint Consulting.",
+      "A portfolio of business plans, investor pitch decks, financial models, market research, and strategic consulting projects completed by Ravinear.",
     isPartOf: {
       "@type": "WebSite",
       "@id": `${siteConfig.url}/#website`,
@@ -190,7 +190,7 @@ export function getAboutPageJsonLd() {
     url: absoluteUrl("/about"),
     name: `About ${siteConfig.name}`,
     description:
-      "Learn about LaunchPoint Consulting, our approach, values, and commitment to helping businesses communicate clearly and pursue growth and funding opportunities.",
+      "Learn about Ravinear, our approach, values, and commitment to helping businesses communicate clearly and pursue growth and funding opportunities.",
     about: {
       "@type": "Organization",
       "@id": `${siteConfig.url}/#organization`,
@@ -211,7 +211,7 @@ export function getContactPageJsonLd() {
     url: absoluteUrl("/contact"),
     name: `Contact ${siteConfig.name}`,
     description:
-      "Contact LaunchPoint Consulting to discuss your business plan, pitch deck, financial model, market research, or presentation project.",
+      "Contact Ravinear to discuss your business plan, pitch deck, financial model, market research, or presentation project.",
     mainEntity: {
       "@type": "Organization",
       "@id": `${siteConfig.url}/#organization`,

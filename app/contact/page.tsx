@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   title: "Free Business Consultation",
 
   description:
-    "Schedule a free consultation with LaunchPoint Consulting to discuss your business plan, investor pitch deck, financial model, market research, or presentation project.",
+    "Schedule a free consultation with Ravinear to discuss your business plan, investor pitch deck, financial model, market research, or presentation project.",
 
   alternates: {
     canonical: "/contact",
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
       "Tell us about your business goals and discover the right strategy for your next project.",
     url: "/contact",
     type: "website",
-    siteName: "LaunchPoint Consulting",
+    siteName: "Ravinear",
   },
 
   twitter: {

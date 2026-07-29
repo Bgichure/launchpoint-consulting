@@ -8,11 +8,11 @@ export const stats = [
     label: "Industries Served",
   },
   {
-    value: "98%",
+    value: "95%",
     label: "Client Satisfaction",
   },
   {
-    value: "$150M+",
+    value: "$20M+",
     label: "Funding Supported",
   },
 ];

@@ -34,7 +34,7 @@ function getProject(slug: string) {
 function getProjectDescription(project: (typeof projects)[number]) {
   return (
     project.description ||
-    `Explore the ${project.title} case study by LaunchPoint Consulting, including its strategy, deliverables, and business outcomes.`
+    `Explore the ${project.title} case study by Ravinear, including its strategy, deliverables, and business outcomes.`
   );
 }
 
@@ -54,7 +54,7 @@ export async function generateMetadata({
     return {
       title: "Project Not Found",
       description:
-        "The requested LaunchPoint Consulting project was not found.",
+        "The requested Ravinear project was not found.",
       robots: {
         index: false,
         follow: false,
@@ -79,13 +79,13 @@ export async function generateMetadata({
       title,
       description,
       url: projectUrl,
-      siteName: "LaunchPoint Consulting",
+      siteName: "Ravinear",
       images: [
         {
           url: project.image,
           width: 1200,
           height: 630,
-          alt: `${project.title} case study by LaunchPoint Consulting`,
+          alt: `${project.title} case study by Ravinear`,
         },
       ],
     },

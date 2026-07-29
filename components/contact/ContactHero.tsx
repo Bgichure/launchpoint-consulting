@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowDown, CheckCircle2 } from "lucide-react";
 
 import Container from "@/components/ui/Container";
+import { company } from "@/data/company";
 
 const highlights = [
   "Free initial consultation",
@@ -20,7 +21,7 @@ export default function ContactHero() {
             <div className="h-px w-10 bg-[#C9A227]" />
 
             <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
-              Contact LaunchPoint
+              Contact {company.name}
             </span>
 
             <div className="h-px w-10 bg-[#C9A227]" />
@@ -57,7 +58,7 @@ export default function ContactHero() {
             </Link>
 
             <a
-              href="mailto:hello@launchpointconsulting.com"
+              href={`mailto:${company.email}`}
               className="inline-flex items-center justify-center rounded-xl border border-slate-300 bg-white px-6 py-3.5 text-sm font-semibold text-[#0F172A] transition-all duration-300 hover:border-[#C9A227] hover:text-[#7A5C00]"
             >
               Email Us Directly

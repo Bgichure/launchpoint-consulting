@@ -50,7 +50,7 @@ export default function Footer() {
               className="inline-flex rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C9A227] focus-visible:ring-offset-4 focus-visible:ring-offset-[#0F172A]"
             >
               <Image
-                src="/logos/logo.webp"
+                src={company.assets.logo}
                 alt={company.name}
                 width={110}
                 height={48}

@@ -14,17 +14,17 @@ import {
 } from "@/lib/seo/jsonLd";
 
 export const metadata: Metadata = {
-  title: "About LaunchPoint Consulting",
+  title: "About Ravinear",
 
   description:
-    "Learn how LaunchPoint Consulting helps entrepreneurs, startups, and growing businesses transform ambitious ideas into clear strategies, investor-ready business plans, financial models, and professional presentations.",
+    "Learn how Ravinear helps entrepreneurs, startups, and growing businesses transform ambitious ideas into clear strategies, investor-ready business plans, financial models, and professional presentations.",
 
   alternates: {
     canonical: "/about",
   },
 
   openGraph: {
-    title: "About LaunchPoint Consulting",
+    title: "About Ravinear",
     description:
       "Discover our strategy-led approach to business planning, financial modeling, market research, and investor-ready consulting.",
     url: "/about",

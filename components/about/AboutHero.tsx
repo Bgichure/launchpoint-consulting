@@ -20,7 +20,7 @@ export default function AboutHero() {
             <div className="h-px w-10 bg-[#C9A227]" />
 
             <span className="text-xs font-semibold uppercase tracking-[0.28em] text-[#7A5C00] sm:text-sm">
-              About LaunchPoint
+              About Ravinear
             </span>
 
             <div className="h-px w-10 bg-[#C9A227]" />
@@ -31,7 +31,7 @@ export default function AboutHero() {
           </h1>
 
           <p className="mx-auto mt-7 max-w-2xl text-base leading-8 text-slate-600 sm:text-lg">
-            LaunchPoint Consulting helps entrepreneurs and growing businesses
+            Ravinear helps entrepreneurs and growing businesses
             transform ideas into professional strategies, credible financial
             plans and investment-ready business documents.
           </p>

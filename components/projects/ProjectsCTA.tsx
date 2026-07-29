@@ -64,7 +64,7 @@ export default function ProjectsCTA() {
 
           {/* Trust Indicators */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-3 text-sm font-medium tracking-wide text-slate-400">
-            <span>700+ Projects Delivered</span>
+            <span>150+ Projects Delivered</span>
 
             <span className="hidden text-slate-600 sm:inline">•</span>
 

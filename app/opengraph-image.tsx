@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "LaunchPoint Consulting — Business Plans, Pitch Decks and Financial Models";
+  "Ravinear — Business Plans, Pitch Decks and Financial Models";
 
 export const size = {
   width: 1200,
@@ -101,7 +101,7 @@ export default function OpenGraphImage() {
                   fontWeight: 700,
                 }}
               >
-                LaunchPoint Consulting
+                Ravinear
               </span>
 
               <span
@@ -191,7 +191,7 @@ export default function OpenGraphImage() {
                 fontSize: 17,
               }}
             >
-              launchpointconsulting.com
+              ravinear.com
             </span>
 
             <div

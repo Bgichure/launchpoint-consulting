@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 
+import { company } from "@/data/company";
 import { navigation } from "@/data/navigation";
 
 export default function Navbar() {
@@ -56,13 +57,13 @@ export default function Navbar() {
         {/* Logo */}
         <Link
           href="/"
-          aria-label="LaunchPoint Consulting homepage"
+          aria-label={`${company.name} homepage`}
           onClick={closeMobileMenu}
           className="relative z-50 flex shrink-0 items-center transition-transform duration-300 hover:scale-[1.02]"
         >
           <Image
-            src="/logos/logo.webp"
-            alt="LaunchPoint Consulting"
+            src={company.assets.logo}
+            alt={company.name}
             width={130}
             height={54}
             priority

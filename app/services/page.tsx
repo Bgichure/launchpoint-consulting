@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   title: "Business Plans, Pitch Decks & Financial Models",
 
   description:
-    "Explore professional business plans, investor pitch decks, financial models, market research, grant and loan plans, and presentation design services from LaunchPoint Consulting.",
+    "Explore professional business plans, investor pitch decks, financial models, market research, grant and loan plans, and presentation design services from Ravinear.",
 
   alternates: {
     canonical: "/services",
