@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/footer";
@@ -153,6 +154,9 @@ export default function RootLayout({
         {children}
 
         <Footer />
+        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
+          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+)}
       </body>
     </html>
   );
